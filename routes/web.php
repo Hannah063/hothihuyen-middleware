@@ -16,6 +16,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('/', function(){
+    return '<h1 style="text-align: center;">TRANG CHỦ UNICODE</h1>';
+})->name('home');
+
 // client route
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth.admin');
 Route::prefix('categories')->group(function () {
@@ -38,5 +42,5 @@ Route::get('san-pham/{id}', [HomeController::class, 'getProductDetail']);
 
 Route::middleware('auth.admin')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
-    Route::resource('products', ProductsController::class)->middleware('auth.admin');
+    Route::resource('products', ProductsController::class)->middleware('auth.admin.product');
 });

@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        //echo 'Product khởi động';
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -16,6 +16,7 @@ class AuthApi
      */
     public function handle(Request $request, Closure $next)
     {
+        echo 'Request API';
         return $next($request);
     }
 }
